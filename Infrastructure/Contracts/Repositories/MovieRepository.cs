@@ -38,7 +38,7 @@ namespace Infrastructure.Repositories
             foreach (var dep in query)
             {
                 Console.WriteLine($" {dep.Movie.Title}  :  {dep.Review}");
-                    
+               
             }
 
 
