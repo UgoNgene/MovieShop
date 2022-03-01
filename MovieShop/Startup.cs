@@ -2,6 +2,8 @@
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using ApplicationCore.Contracts.Repositories;
+using ApplicationCore.Contracts.Services;
+using Infrastructure.Services;
 
 namespace MovieShop
 {
@@ -18,9 +20,13 @@ namespace MovieShop
             service.AddDbContext<MovieShopDbContext>(option => {
                 option.UseSqlServer(Configuration.GetConnectionString("MovieShopDB"));
             });
+
             service.AddScoped<IGenreRepository, GenreRepository>();
             service.AddScoped<IMovieRepository, MovieRepository>();
-            //service.AddScoped<IGenreService, GenreService>();
+
+
+            service.AddScoped<IGenreService, GenreService>();
+           // service.AddScoped<IMovieService, MovieService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

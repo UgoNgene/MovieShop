@@ -23,6 +23,7 @@ namespace Infrastructure.Repositories
             if (entity != null)
             {
                 _db.Set<T>().Remove(entity);
+                _db.SaveChanges();
                 return 1;
             }
             return 0;
